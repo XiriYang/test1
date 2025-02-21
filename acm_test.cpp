@@ -8,7 +8,6 @@ public:
 	Circle(float r);
 	float circumference();
 	float area();
-	~Circle() {};
 private:
 	float radius;
 };
