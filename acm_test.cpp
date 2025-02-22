@@ -1,37 +1,34 @@
 #include<iostream>
 using namespace std;
-const float PI = 3.141593;
-const float FENCE_PRICE = 35;
-const float CONCRETE_PRICE = 20;
-class Circle {
-public:
-	Circle(float r);
-	float circumference();
-	float area();
+enum CPU_Rank{P1=1,P2,P3,P4,P5,P6,P7};
+class CPU
+{
 private:
-	float radius;
+	CPU_Rank rank;
+	int frequency;
+	float voltage;
+public:
+	CPU(CPU_Rank r, int f, float v)
+	{
+		rank = r;
+		frequency = f;
+		voltage = v;
+		cout << "构造了一个CPU!" << endl;
+	}
+	~CPU() { cout << "析构了一个CPU!" << endl; }
+	CPU_Rank GetRank()const { return rank; }
+	int GetFrequency()const { return frequency; }
+	float GetVoltage()const { return voltage; }
+	void SetRank(CPU_Rank r) { rank = r; }
+	void SetFrequency(CPU_Rank f) { frequency = f; }
+	void SetVoltage(CPU_Rank v) { voltage = v; }
+	void Run() { cout << "CPU开始运行！" << endl; }
+	void Stop() { cout << "CPU停止运行！" << endl; }
 };
 int main()
 {
-	float radius;
-	cout << "Enter the radius of the pool: ";
-	cin >> radius;
-	Circle pool(radius);
-	Circle poolrim(radius+3);
-	auto fencecost = poolrim.circumference() * FENCE_PRICE;
-	auto concretecost = (poolrim.area() - pool.area()) * CONCRETE_PRICE;
-	cout << fencecost << endl<< concretecost << endl;
+	CPU a{ P6,300,2.8 };
+	a.Run();
+	a.Stop();
 	return 0;
-}
-Circle::Circle(float r)
-{
-	radius = r;
-}
-float Circle::circumference()
-{
-	return 2 * PI * radius;
-}
-float Circle::area()
-{
-	return PI * radius * radius;
 }
