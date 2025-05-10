@@ -1,19 +1,19 @@
-// ReminderManager.h
+// PasswordManager.h
 #pragma once
-#ifndef REM_H
-#define REM_H
+#ifndef PAM_H
+#define PAM_H
 #include "Manager.h"
-#include "ReminderRecord.h"
+#include "PasswordRecord.h"
 
-class ReminderManager : public Manager {
+class PasswordManager : public Manager {
 private:
-    std::string filename = "reminder.txt";
+    std::string filename = "password.txt";
 public:
     void loadFromFile() override;
     void saveToFile() const override;
     void addRecord() override;
     void displayAll() const override;
     void query() const override;
-    void sortRecords();
+    void deleteRecord();
 };
 #endif

@@ -1,19 +1,20 @@
-// ReminderManager.h
+// FinanceManager.h
 #pragma once
-#ifndef REM_H
-#define REM_H
-#include "Manager.h"
-#include "ReminderRecord.h"
+#ifndef FIM_H
+#define FIM_H
 
-class ReminderManager : public Manager {
+#include "Manager.h"
+#include "FinanceRecord.h"
+
+class FinanceManager : public Manager {
 private:
-    std::string filename = "reminder.txt";
+    std::string filename = "finance.txt";
 public:
     void loadFromFile() override;
     void saveToFile() const override;
     void addRecord() override;
     void displayAll() const override;
     void query() const override;
-    void sortRecords();
+    void deleteRecord();
 };
 #endif
